@@ -1,0 +1,30 @@
+.fondo-home {
+  background-color: #eef2ff;
+}
+
+.titulo-home {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 30px;
+  color: #1d4ed8;
+}
+
+.card-home {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+.texto-home {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.lista-home {
+  margin-bottom: 25px;
+}
+
+.boton-logout {
+  margin-top: 15px;
+}
