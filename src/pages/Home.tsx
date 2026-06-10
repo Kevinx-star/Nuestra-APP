@@ -32,7 +32,7 @@ function Home({ usuario, onLogout }: Props) {
           <IonCardHeader>
 
             <IonCardTitle>
-              Bienvenido {usuario}
+              Bienvenido: {usuario}
             </IonCardTitle>
 
           </IonCardHeader>
