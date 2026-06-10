@@ -99,10 +99,11 @@ function limpiarHechas() {
               <IonButton size="small" fill={filtro === 'hechas' ? 'solid' : 'outline'} onClick={() => setFiltro('hechas')}>
                 Hechas
               </IonButton>
-                <div className="resumen-tareas">
-              <IonButton size="small" color="medium" onClick={limpiarHechas}>
-                Limpiar hechas
-              </IonButton>
+                <div className="resumen-tareas limpiar-tareas" onClick={limpiarHechas}>
+                  <span>Limpiar tareas hechas</span>
+                  <span>{tareas.filter(t => t.completada).length} completadas</span>
+
+            
               </div>
             </div>
             <div className="resumen-tareas">
