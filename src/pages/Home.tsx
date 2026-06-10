@@ -96,13 +96,13 @@ function completarTarea(id: number) {
                 <IonButton size ="small" 
                 color="success"
                 onClick={() => completarTarea(tarea.id)}>
-                  v
+                  ✅
                   </IonButton>
                   
                   <IonButton size="small"
                   color="danger"
                   onClick={() => eliminarTarea(tarea.id)}>
-                    x
+                    ❌
                   </IonButton>
                     
                   </div>
