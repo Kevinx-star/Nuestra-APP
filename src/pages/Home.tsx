@@ -75,7 +75,7 @@ function limpiarHechas() {
         <h1 className="titulo-home">
           CLEANTASK el loco Guillermo, {usuario}!  
         </h1>
-        <p>estas son tus tareas</p>
+        <p>Estas son tus tareas:</p>
         <IonCard>
           <IonCardContent>
             <input
