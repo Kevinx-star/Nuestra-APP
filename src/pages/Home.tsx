@@ -60,7 +60,7 @@ function limpiarHechas() {
   setTareas(tareas.filter(t => !t.completada))
 }
 
-  // Tareas filtradas según el botón seleccionado
+  
   const tareasFiltradas = tareas.filter(t => {
     if (filtro === 'pendientes') return !t.completada
     if (filtro === 'hechas') return t.completada
@@ -73,7 +73,7 @@ function limpiarHechas() {
       <IonContent className="ion-padding fondo-home">
 
         <h1 className="titulo-home">
-          CLEANTASK, {usuario}!  
+          CLEANTASK el loco Guillermo, {usuario}!  
         </h1>
         <p>estas son tus tareas</p>
         <IonCard>
@@ -84,12 +84,11 @@ function limpiarHechas() {
             value={nuevaTarea}
             onChange={e => setNuevaTarea(e.target.value)}
             />
-            <IonButton onClick={agregarTarea}>Agregar tarea
+            <IonButton onClick={agregarTarea}>+
             </IonButton>
             </IonCardContent>
             </IonCard>
 
-            {/* Botones de filtro */}
             <div className="filtros">
               <IonButton size="small" fill={filtro === 'todas' ? 'solid' : 'outline'} onClick={() => setFiltro('todas')}>
                 Todas
@@ -100,11 +99,20 @@ function limpiarHechas() {
               <IonButton size="small" fill={filtro === 'hechas' ? 'solid' : 'outline'} onClick={() => setFiltro('hechas')}>
                 Hechas
               </IonButton>
+                <div className="resumen-tareas">
               <IonButton size="small" color="medium" onClick={limpiarHechas}>
                 Limpiar hechas
               </IonButton>
+              </div>
             </div>
-
+            <div className="resumen-tareas">
+            <span>
+              {tareas.filter(t => t.completada).length} de {tareas.length} tareas completadas
+            </span>
+            <span>
+              {tareas.filter(t => !t.completada).length} pendientes
+            </span>
+          </div>
             <IonCard>
             <IonCardHeader>
           <IonCardTitle>Mis Tareas Guillermo</IonCardTitle>
@@ -121,14 +129,10 @@ function limpiarHechas() {
                 <IonButton size ="small" 
                 color="success"
                 onClick={() => completarTarea(tarea.id)}>
-                  v
+                  ✅
                   </IonButton>
                   
-                  <IonButton size="small"
-                  color="danger"
-                  onClick={() => eliminarTarea(tarea.id)}>
-                    x
-                  </IonButton>
+                  
                     
                   </div>
             ))}
@@ -143,7 +147,7 @@ function limpiarHechas() {
               </IonCard>
               </IonContent>
 
-      {/* ===== FOOTER ===== */}
+
       <IonFooter>
         <IonToolbar className="footer-toolbar">
           <div className="footer-container">
@@ -186,7 +190,7 @@ function limpiarHechas() {
               </div>
             </div>
             <div className="footer-copyright">
-              <p>© 2025 CLEANTASK — Todos los derechos reservados</p>
+              <p>© 2026 CLEANTASK — Todos los derechos reservados</p>
               <p>Desarrollado como proyecto universitario</p>
             </div>
           </div>
