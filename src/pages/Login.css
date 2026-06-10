@@ -1,38 +1,185 @@
+/* ===== FONDO GENERAL ===== */
 .fondo-login {
-  background-color: #f2f2f2;
+  --background: #f0f4f8;
 }
 
+/* ===== TÍTULO PRINCIPAL ===== */
 .titulo-login {
   text-align: center;
-  font-size: 32px;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #1e3a8a;
+  font-size: 26px;
   font-weight: bold;
+  color: #1a1a2e;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.subtitulo-login {
-  text-align: center;
-  font-size: 24px;
-}
-
+/* ===== CARD LOGIN ===== */
 .card-login {
   max-width: 400px;
   margin: auto;
-  margin-top: 30px;
-  border-radius: 15px;
+  margin-top: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
 }
 
+/* ===== SUBTÍTULO ===== */
+.subtitulo-login {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #1a1a2e;
+}
+
+/* ===== CAMPOS DEL FORMULARIO ===== */
+/* ⚠️ En Ionic hay que usar -- para sobreescribir estilos internos */
 .campo-login {
-  margin-top: 10px;
+  --background: #f8f9fa;
+  --border-color: #4fc3f7;
+  --border-width: 0 0 2px 0;
+  --border-radius: 8px;
+  --padding-start: 12px;
+  --inner-padding-end: 12px;
+  --highlight-color-focused: #4fc3f7;
+  --color: #1a1a2e;
+  margin-top: 12px;
+  border-left: 4px solid #4fc3f7;
+  border-radius: 8px;
 }
 
+/* ===== LABEL DE LOS CAMPOS ===== */
+.campo-login ion-label {
+  --color: #555555 !important;
+  font-size: 13px !important;
+  font-weight: bold !important;
+}
+
+/* ===== INPUT INTERNO ===== */
+.campo-login ion-input {
+  --color: #1a1a2e;
+  --placeholder-color: #aaaaaa;
+  font-size: 15px;
+}
+
+/* ===== BOTÓN INGRESAR ===== */
 .boton-login {
+  --border-radius: 12px;
+  --background: #1a1a2e;
+  --background-hover: #4fc3f7;
+  --background-activated: #4fc3f7;
+  --color: #ffffff;
   margin-top: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  height: 48px;
 }
 
+/* ===== MENSAJE DE ERROR ===== */
 .mensaje-error {
   text-align: center;
   margin-top: 10px;
   font-weight: bold;
+  font-size: 13px;
+}
+
+/* ===== FOOTER ===== */
+.footer-toolbar {
+  --background: #1a1a2e;
+  --color: #ffffff;
+  padding: 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 16px 10px 16px;
+  gap: 16px;
+}
+
+.footer-seccion {
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+}
+
+.footer-titulo {
+  color: #4fc3f7;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.footer-subtitulo {
+  color: #4fc3f7;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #4fc3f7;
+  padding-bottom: 4px;
+}
+
+.footer-descripcion {
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #cccccc;
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.footer-icono {
+  color: #4fc3f7;
+  font-size: 16px;
+  min-width: 16px;
+}
+
+.footer-enlace {
+  color: #cccccc;
+  font-size: 12px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-enlace:hover {
+  color: #4fc3f7;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.footer-red {
+  color: #cccccc;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-red:hover {
+  color: #4fc3f7;
+}
+
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #333333;
+  padding-top: 12px;
+  margin-top: 8px;
+  color: #888888;
+  font-size: 11px;
+}
+
+.footer-copyright p {
+  margin: 4px 0;
 }
