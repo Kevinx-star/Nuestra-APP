@@ -24,7 +24,7 @@ function Home({ usuario, onLogout }: Props) {
       <IonContent className="ion-padding fondo-home">
 
         <h1 className="titulo-home">
-          Página Principal
+          CLEANTASK
         </h1>
 
         <IonCard className="card-home">
@@ -40,13 +40,11 @@ function Home({ usuario, onLogout }: Props) {
           <IonCardContent>
 
             <p className="texto-home">
-              Esta es una aplicación de ejemplo creada con Ionic React.
+              
             </p>
 
             <ul className="lista-home">
-              <li>Noticias</li>
-              <li>Usuarios</li>
-              <li>Productos</li>
+              
             </ul>
 
             <IonButton
