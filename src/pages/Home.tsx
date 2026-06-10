@@ -29,7 +29,6 @@ interface Tarea {
   completada: boolean
 }
 
-
 interface Props {
   usuario: string
   onLogout: () => void
@@ -37,9 +36,10 @@ interface Props {
 function Home({ usuario, onLogout }: Props) {
   const [tareas, setTareas] = useState<Tarea[]>([
 {id:1, texto: 'Tarea 1', completada: false}
-
   ])
-  const [nuevaTarea, setNuevaTarea] = useState<string>('') 
+  const [nuevaTarea, setNuevaTarea] = useState<string>('')
+  const [filtro, setFiltro] = useState<string>('todas')
+
   function agregarTarea() {
     if (nuevaTarea === '') return
     const tarea: Tarea = {
@@ -56,6 +56,16 @@ function eliminarTarea(id: number) {
 function completarTarea(id: number) {
   setTareas(tareas.map(t=>t.id === id ? {...t, completada: !t.completada} : t))
 }
+function limpiarHechas() {
+  setTareas(tareas.filter(t => !t.completada))
+}
+
+  // Tareas filtradas según el botón seleccionado
+  const tareasFiltradas = tareas.filter(t => {
+    if (filtro === 'pendientes') return !t.completada
+    if (filtro === 'hechas') return t.completada
+    return true
+  })
 
   return (
     <IonPage>
@@ -75,20 +85,35 @@ function completarTarea(id: number) {
             onChange={e => setNuevaTarea(e.target.value)}
             />
             <IonButton onClick={agregarTarea}>Agregar tarea
-
             </IonButton>
             </IonCardContent>
             </IonCard>
+
+            {/* Botones de filtro */}
+            <div className="filtros">
+              <IonButton size="small" fill={filtro === 'todas' ? 'solid' : 'outline'} onClick={() => setFiltro('todas')}>
+                Todas
+              </IonButton>
+              <IonButton size="small" fill={filtro === 'pendientes' ? 'solid' : 'outline'} onClick={() => setFiltro('pendientes')}>
+                Pendientes
+              </IonButton>
+              <IonButton size="small" fill={filtro === 'hechas' ? 'solid' : 'outline'} onClick={() => setFiltro('hechas')}>
+                Hechas
+              </IonButton>
+              <IonButton size="small" color="medium" onClick={limpiarHechas}>
+                Limpiar hechas
+              </IonButton>
+            </div>
 
             <IonCard>
             <IonCardHeader>
           <IonCardTitle>Mis Tareas Guillermo</IonCardTitle>
             </IonCardHeader>
           <IonCardContent>
-            {tareas.length === 0 && (
-              <p>No tienes tareas aún</p>
+            {tareasFiltradas.length === 0 && (
+              <p>No hay tareas aquí</p>
             )}
-            {tareas.map(tarea =>(
+            {tareasFiltradas.map(tarea =>(
               <div key={tarea.id} className="tarea-fila">
                 <span className={tarea.completada ? 'tarea-completada' : ''}>
                   {tarea.texto}
@@ -96,19 +121,18 @@ function completarTarea(id: number) {
                 <IonButton size ="small" 
                 color="success"
                 onClick={() => completarTarea(tarea.id)}>
-                  ✅
+                  v
                   </IonButton>
                   
                   <IonButton size="small"
                   color="danger"
                   onClick={() => eliminarTarea(tarea.id)}>
-                    ❌
+                    x
                   </IonButton>
                     
                   </div>
             ))}
 
-        
           </IonCardContent>
 
 
@@ -122,9 +146,7 @@ function completarTarea(id: number) {
       {/* ===== FOOTER ===== */}
       <IonFooter>
         <IonToolbar className="footer-toolbar">
-
           <div className="footer-container">
-
             <div className="footer-seccion">
               <h3 className="footer-titulo">CLEANTASK</h3>
               <p className="footer-descripcion">
@@ -133,7 +155,6 @@ function completarTarea(id: number) {
                 simple y eficiente.
               </p>
             </div>
-
             <div className="footer-seccion">
               <h4 className="footer-subtitulo">Contacto</h4>
               <p className="footer-item">
@@ -149,7 +170,6 @@ function completarTarea(id: number) {
                 contacto@cleantask.com
               </p>
             </div>
-
             <div className="footer-seccion">
               <h4 className="footer-subtitulo">Enlaces</h4>
               <p className="footer-enlace">Acerca de nosotros</p>
@@ -157,7 +177,6 @@ function completarTarea(id: number) {
               <p className="footer-enlace">Términos y condiciones</p>
               <p className="footer-enlace">Soporte</p>
             </div>
-
             <div className="footer-seccion">
               <h4 className="footer-subtitulo">Síguenos</h4>
               <div className="footer-redes">
@@ -166,14 +185,11 @@ function completarTarea(id: number) {
                 <IonIcon icon={logoTwitter} className="footer-red" />
               </div>
             </div>
-
             <div className="footer-copyright">
               <p>© 2025 CLEANTASK — Todos los derechos reservados</p>
               <p>Desarrollado como proyecto universitario</p>
             </div>
-
           </div>
-
         </IonToolbar>
       </IonFooter>
 
