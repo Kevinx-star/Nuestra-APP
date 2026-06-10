@@ -1,30 +1,157 @@
+/* ===== FONDO GENERAL ===== */
 .fondo-home {
-  background-color: #eef2ff;
+  --background: #f0f4f8;
 }
 
+/* ===== TÍTULO PRINCIPAL ===== */
 .titulo-home {
   text-align: center;
   font-size: 32px;
-  margin-top: 30px;
-  color: #1d4ed8;
-}
-
-.card-home {
-  max-width: 500px;
-  margin: auto;
-  margin-top: 20px;
-  border-radius: 15px;
-}
-
-.texto-home {
-  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a2e;
+  letter-spacing: 4px;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
+/* ===== CARD PRINCIPAL ===== */
+.card-home {
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  margin-bottom: 16px;
+}
+
+/* ===== TEXTO DENTRO DE LA CARD ===== */
+.texto-home {
+  color: #555555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ===== LISTA DE TAREAS ===== */
 .lista-home {
-  margin-bottom: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
 }
 
+.lista-home li {
+  background: #f8f9fa;
+  border-left: 4px solid #4fc3f7;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* ===== BOTÓN CERRAR SESIÓN ===== */
 .boton-logout {
-  margin-top: 15px;
+  --border-radius: 12px;
+  margin-top: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* ===== FOOTER ===== */
+.footer-toolbar {
+  --background: #1a1a2e;
+  --color: #ffffff;
+  padding: 0;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px 16px 10px 16px;
+  gap: 16px;
+}
+
+.footer-seccion {
+  flex: 1;
+  min-width: 150px;
+  max-width: 220px;
+}
+
+.footer-titulo {
+  color: #4fc3f7;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.footer-subtitulo {
+  color: #4fc3f7;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #4fc3f7;
+  padding-bottom: 4px;
+}
+
+.footer-descripcion {
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #cccccc;
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.footer-icono {
+  color: #4fc3f7;
+  font-size: 16px;
+  min-width: 16px;
+}
+
+.footer-enlace {
+  color: #cccccc;
+  font-size: 12px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-enlace:hover {
+  color: #4fc3f7;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.footer-red {
+  color: #cccccc;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-red:hover {
+  color: #4fc3f7;
+}
+
+.footer-copyright {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid #333333;
+  padding-top: 12px;
+  margin-top: 8px;
+  color: #888888;
+  font-size: 11px;
+}
+
+.footer-copyright p {
+  margin: 4px 0;
 }

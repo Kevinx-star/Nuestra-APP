@@ -23,86 +23,86 @@ interface Props {
 function Login({ onLogin }: Props) {
 
   const usuarios = [
-    {
-      usuario: 'admin',
-      clave: '123'
-    },
-    {
-      usuario: 'john',
-      clave: '456'
-    }
+    { usuario: 'admin',   clave: '123'  },
+    { usuario: 'Kevin',   clave: '2008' },
+    { usuario: 'Sergio',  clave: '2007' },
+    { usuario: 'Daniela', clave: '1995' }
   ]
 
-  const [usuario, setUsuario] = useState('')
-  const [clave, setClave] = useState('')
-  const [mensaje, setMensaje] = useState('')
+  const [usuario,  setUsuario]  = useState('')
+  const [email,    setEmail]    = useState('') 
+  const [clave,    setClave]    = useState('')
+  const [mensaje,  setMensaje]  = useState('')
 
   const iniciarSesion = () => {
 
-    const encontrado = usuarios.find(
-      u =>
-        u.usuario === usuario &&
-        u.clave === clave
-    )
-
-    if (encontrado) {
-      onLogin(usuario)
-    } else {
-      setMensaje('Usuario o contraseña incorrectos')
-    }
+  
+  if (email.trim() === '') {
+    setMensaje('El correo electrónico es obligatorio')
+    return 
   }
 
+  
+  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  if (!emailValido) {
+    setMensaje('Ingresa un correo electrónico válido')
+    return
+  }
+
+  
+  const encontrado = usuarios.find(
+    u => u.usuario === usuario && u.clave === clave
+  )
+
+  if (encontrado) {
+    onLogin(usuario)
+  } else {
+    setMensaje('Usuario o contraseña incorrectos')
+  }
+}
+
   return (
-
     <IonPage>
-
       <IonContent className="ion-padding fondo-login">
 
-        <h1 className="titulo-login">
-          Sistema de Acceso
-        </h1>
+        <h1 className="titulo-login">Sistema de Acceso</h1>
 
         <IonCard className="card-login">
-
           <IonCardHeader>
-
             <IonCardTitle className="subtitulo-login">
               Inicio de Sesión
             </IonCardTitle>
-
           </IonCardHeader>
 
           <IonCardContent>
 
+            {}
             <IonItem className="campo-login">
-
-              <IonLabel position="stacked">
-                Usuario
-              </IonLabel>
-
+              <IonLabel position="stacked">Usuario</IonLabel>
               <IonInput
                 value={usuario}
-                onIonChange={(e) =>
-                  setUsuario(e.detail.value!)
-                }
+                onIonChange={(e) => setUsuario(e.detail.value!)}
               />
-
             </IonItem>
 
+            {}
             <IonItem className="campo-login">
+              <IonLabel position="stacked">Correo electrónico</IonLabel>
+              <IonInput
+                type="email"
+                value={email}
+                onIonChange={(e) => setEmail(e.detail.value!)}
+              />
+            </IonItem>
 
-              <IonLabel position="stacked">
-                Contraseña
-              </IonLabel>
-
+            {}
+            <IonItem className="campo-login">
+              <IonLabel position="stacked">Contraseña</IonLabel>
               <IonInput
                 type="password"
                 value={clave}
-                onIonChange={(e) =>
-                  setClave(e.detail.value!)
-                }
+                onIonChange={(e) => setClave(e.detail.value!)}
               />
-
             </IonItem>
 
             <IonButton
@@ -114,17 +114,13 @@ function Login({ onLogin }: Props) {
             </IonButton>
 
             <IonText color="danger">
-              <p className="mensaje-error">
-                {mensaje}
-              </p>
+              <p className="mensaje-error">{mensaje}</p>
             </IonText>
 
           </IonCardContent>
-
         </IonCard>
 
       </IonContent>
-
     </IonPage>
   )
 }
